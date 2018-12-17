@@ -14,7 +14,7 @@ object Main {
   }
 
   /**
-   * Exercise 1
+   * Function to print Pascal's triangle
    */
     def pascal(c: Int, r: Int): Int = {
       factorial(r) / (factorial(c)*factorial(r-c))
@@ -30,7 +30,7 @@ object Main {
       factorialAccu(x,1)
     }
   /**
-   * Exercise 2
+   * Finds whether the brackets are balanced in the given statement
    */
     def balance(chars: List[Char]): Boolean = {
 
@@ -59,23 +59,5 @@ object Main {
       else false
     }
   
-  /**
-   * Exercise 3
-   */
-    def countChange(money: Int, coins: List[Int]): Int = {
-
-      def reduceMoney(givMoney: Int, cns: List[Int], ways: Int): Int ={
-        if(givMoney < 0) ways
-        else if (cns.isEmpty)
-        { if (givMoney == 0) ways+1
-          else ways
-        }
-        else reduceMoney(givMoney, cns.tail , ways) +
-          reduceMoney(givMoney - cns.head, cns, ways)
-      }
-
-      if(coins.isEmpty || money < 0) 0
-      else reduceMoney(money, coins, 0)
-    }
 
 }
